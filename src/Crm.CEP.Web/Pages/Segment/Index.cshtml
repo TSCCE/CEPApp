@@ -1,0 +1,105 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Authorization
+@using Volo.Abp.Users
+@using Crm.CEP.Web.Pages.Segment
+@section styles {
+    <abp-style src="/Pages/Index.css" />
+}
+@model Crm.CEP.Web.Pages.Segment.IndexModel
+@{
+}
+
+@section scripts
+{
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
+     <link rel="stylesheet" href="~/plugins/daterangepicker/daterangepicker.css">
+    
+
+<script src="~/plugins/humanize-duration.js"></script> 
+  <script src="~/plugins/moment/moment.min.js"></script>
+    <script src="~/plugins/moment/moment-timezone-with-data.js"></script>
+    <script src="~/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="~/plugins/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <abp-script src="/Pages/Segment/Index.js" />
+    }
+<section class="content-header">
+    <h1 class="Wo-List">
+        @Html.Raw("Segments Register")
+         <div class="text-right">
+            &nbsp;&nbsp;&nbsp;
+            @*<button type="button" class="btn btn-primary btn-xs" id="btncreateIncident" style="padding-right:10px;" onclick='ShowCreateIncidentModal();'>
+                <span class="fa fa-plus"></span>&nbsp;Create Segment
+            </button>*@
+            @*<a asp-controller="IndexModel" asp-action="Create" class="btn btn-primary"><span class="fa fa-plus"></span>&nbsp;Create Segment</a>*@
+        <a asp-page="./CreateSegment"class="btn btn-primary"><span class="fa fa-plus"></span>&nbsp;Create Segment</a>
+        </div>
+        <small></small>
+    </h1>
+ 
+</section>
+<section class="content">
+    <!-- Asset Register Filter -->
+    <div class="box2">
+        <div class="box-header with-border" data-widget="collapse">
+            <h3 class="box-title"><i class="fa fa-filter" aria-hidden="true"></i>&nbsp;&nbsp;Filter Segments</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" id="btn-filterCollapse" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="field-required">Segment Name</label>
+                        <select class="form-control" id="fltr_segment" style="width: 100%;">
+                            <option value="0">--Select Segment--</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="field-required">Created By</label>
+                        <select class="form-control select2" id="fltr_createdby" style="width: 100%;">
+                            <option value="0">--Select--</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Created Date</label>
+                       <div id="fltr_createddate" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                                        <span></span> <b class="caret pull-right" style="margin-top:5px;"></b>
+                                    </div>
+                        @*<input id="fltr_createddate" type="text" class="form-control datepicker" style="border-right: 1px solid #d2d6de;" />*@
+                    </div>
+                </div>
+                </div>
+                <div class="row "> 
+                    <div class="col-md-12 ">
+                     <abp-button id="Searchbtn"
+                                text="Search"
+                            
+                                button-type="Primary" />
+                      </div>
+                </div>
+                
+            </div>
+           
+            </div>
+
+<div class="row">
+
+        <div class="col-md-12">     
+                        <abp-table striped-rows="true" id="SegmentsTable"></abp-table>
+        </div>
+        <!-- /.col -->
+    </div>
+     
+
+</section>
