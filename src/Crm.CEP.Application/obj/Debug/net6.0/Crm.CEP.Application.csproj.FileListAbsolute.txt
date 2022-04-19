@@ -1,0 +1,38 @@
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.Application\bin\Debug\net6.0\Crm.CEP.Application.deps.json
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.Application\bin\Debug\net6.0\Crm.CEP.Application.dll
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.Application\bin\Debug\net6.0\Crm.CEP.Application.pdb
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.Application\bin\Debug\net6.0\Crm.CEP.Application.Contracts.dll
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.Application\bin\Debug\net6.0\Crm.CEP.Domain.dll
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.Application\bin\Debug\net6.0\Crm.CEP.Domain.Shared.dll
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.Application\bin\Debug\net6.0\Crm.CEP.Domain.pdb
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.Application\bin\Debug\net6.0\Crm.CEP.Application.Contracts.pdb
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.Application\bin\Debug\net6.0\Crm.CEP.Domain.Shared.pdb
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.Application\obj\Debug\net6.0\Crm.CEP.Application.csproj.AssemblyReference.cache
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.Application\obj\Debug\net6.0\Crm.CEP.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.Application\obj\Debug\net6.0\Crm.CEP.Application.AssemblyInfoInputs.cache
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.Application\obj\Debug\net6.0\Crm.CEP.Application.AssemblyInfo.cs
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.Application\obj\Debug\net6.0\Crm.CEP.Application.csproj.CoreCompileInputs.cache
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.Application\obj\Debug\net6.0\Crm.CEP.Application.csproj.CopyComplete
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.Application\obj\Debug\net6.0\Crm.CEP.Application.dll
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.Application\obj\Debug\net6.0\refint\Crm.CEP.Application.dll
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.Application\obj\Debug\net6.0\Crm.CEP.Application.pdb
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.Application\obj\Debug\net6.0\ref\Crm.CEP.Application.dll
+D:\CEP APP NEW\New\src\Crm.CEP.Application\bin\Debug\net6.0\Crm.CEP.Application.deps.json
+D:\CEP APP NEW\New\src\Crm.CEP.Application\bin\Debug\net6.0\Crm.CEP.Application.dll
+D:\CEP APP NEW\New\src\Crm.CEP.Application\bin\Debug\net6.0\Crm.CEP.Application.pdb
+D:\CEP APP NEW\New\src\Crm.CEP.Application\bin\Debug\net6.0\Crm.CEP.Application.Contracts.dll
+D:\CEP APP NEW\New\src\Crm.CEP.Application\bin\Debug\net6.0\Crm.CEP.Domain.dll
+D:\CEP APP NEW\New\src\Crm.CEP.Application\bin\Debug\net6.0\Crm.CEP.Domain.Shared.dll
+D:\CEP APP NEW\New\src\Crm.CEP.Application\bin\Debug\net6.0\Crm.CEP.Domain.pdb
+D:\CEP APP NEW\New\src\Crm.CEP.Application\bin\Debug\net6.0\Crm.CEP.Application.Contracts.pdb
+D:\CEP APP NEW\New\src\Crm.CEP.Application\bin\Debug\net6.0\Crm.CEP.Domain.Shared.pdb
+D:\CEP APP NEW\New\src\Crm.CEP.Application\obj\Debug\net6.0\Crm.CEP.Application.csproj.AssemblyReference.cache
+D:\CEP APP NEW\New\src\Crm.CEP.Application\obj\Debug\net6.0\Crm.CEP.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\CEP APP NEW\New\src\Crm.CEP.Application\obj\Debug\net6.0\Crm.CEP.Application.AssemblyInfoInputs.cache
+D:\CEP APP NEW\New\src\Crm.CEP.Application\obj\Debug\net6.0\Crm.CEP.Application.AssemblyInfo.cs
+D:\CEP APP NEW\New\src\Crm.CEP.Application\obj\Debug\net6.0\Crm.CEP.Application.csproj.CoreCompileInputs.cache
+D:\CEP APP NEW\New\src\Crm.CEP.Application\obj\Debug\net6.0\Crm.CEP.Application.csproj.CopyComplete
+D:\CEP APP NEW\New\src\Crm.CEP.Application\obj\Debug\net6.0\Crm.CEP.Application.dll
+D:\CEP APP NEW\New\src\Crm.CEP.Application\obj\Debug\net6.0\refint\Crm.CEP.Application.dll
+D:\CEP APP NEW\New\src\Crm.CEP.Application\obj\Debug\net6.0\Crm.CEP.Application.pdb
+D:\CEP APP NEW\New\src\Crm.CEP.Application\obj\Debug\net6.0\ref\Crm.CEP.Application.dll

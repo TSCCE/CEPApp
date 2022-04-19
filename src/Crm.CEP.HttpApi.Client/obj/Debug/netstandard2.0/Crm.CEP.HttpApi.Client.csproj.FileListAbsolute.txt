@@ -1,0 +1,30 @@
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.HttpApi.Client\bin\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.deps.json
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.HttpApi.Client\bin\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.dll
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.HttpApi.Client\bin\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.pdb
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.HttpApi.Client\bin\Debug\netstandard2.0\Crm.CEP.Application.Contracts.dll
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.HttpApi.Client\bin\Debug\netstandard2.0\Crm.CEP.Domain.Shared.dll
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.HttpApi.Client\bin\Debug\netstandard2.0\Crm.CEP.Application.Contracts.pdb
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.HttpApi.Client\bin\Debug\netstandard2.0\Crm.CEP.Domain.Shared.pdb
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.HttpApi.Client\obj\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.csproj.AssemblyReference.cache
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.HttpApi.Client\obj\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.HttpApi.Client\obj\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.AssemblyInfoInputs.cache
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.HttpApi.Client\obj\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.AssemblyInfo.cs
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.HttpApi.Client\obj\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.csproj.CoreCompileInputs.cache
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.HttpApi.Client\obj\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.csproj.CopyComplete
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.HttpApi.Client\obj\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.dll
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.HttpApi.Client\obj\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.pdb
+D:\CEP APP NEW\New\src\Crm.CEP.HttpApi.Client\bin\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.deps.json
+D:\CEP APP NEW\New\src\Crm.CEP.HttpApi.Client\bin\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.dll
+D:\CEP APP NEW\New\src\Crm.CEP.HttpApi.Client\bin\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.pdb
+D:\CEP APP NEW\New\src\Crm.CEP.HttpApi.Client\bin\Debug\netstandard2.0\Crm.CEP.Application.Contracts.dll
+D:\CEP APP NEW\New\src\Crm.CEP.HttpApi.Client\bin\Debug\netstandard2.0\Crm.CEP.Domain.Shared.dll
+D:\CEP APP NEW\New\src\Crm.CEP.HttpApi.Client\bin\Debug\netstandard2.0\Crm.CEP.Application.Contracts.pdb
+D:\CEP APP NEW\New\src\Crm.CEP.HttpApi.Client\bin\Debug\netstandard2.0\Crm.CEP.Domain.Shared.pdb
+D:\CEP APP NEW\New\src\Crm.CEP.HttpApi.Client\obj\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.csproj.AssemblyReference.cache
+D:\CEP APP NEW\New\src\Crm.CEP.HttpApi.Client\obj\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.GeneratedMSBuildEditorConfig.editorconfig
+D:\CEP APP NEW\New\src\Crm.CEP.HttpApi.Client\obj\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.AssemblyInfoInputs.cache
+D:\CEP APP NEW\New\src\Crm.CEP.HttpApi.Client\obj\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.AssemblyInfo.cs
+D:\CEP APP NEW\New\src\Crm.CEP.HttpApi.Client\obj\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.csproj.CoreCompileInputs.cache
+D:\CEP APP NEW\New\src\Crm.CEP.HttpApi.Client\obj\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.csproj.CopyComplete
+D:\CEP APP NEW\New\src\Crm.CEP.HttpApi.Client\obj\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.dll
+D:\CEP APP NEW\New\src\Crm.CEP.HttpApi.Client\obj\Debug\netstandard2.0\Crm.CEP.HttpApi.Client.pdb

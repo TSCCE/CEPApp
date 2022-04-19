@@ -1,0 +1,38 @@
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\Crm.CEP.EntityFrameworkCore.csproj.AssemblyReference.cache
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\Crm.CEP.EntityFrameworkCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\Crm.CEP.EntityFrameworkCore.AssemblyInfoInputs.cache
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\Crm.CEP.EntityFrameworkCore.AssemblyInfo.cs
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\Crm.CEP.EntityFrameworkCore.csproj.CoreCompileInputs.cache
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.EntityFrameworkCore\bin\Debug\net6.0\Crm.CEP.EntityFrameworkCore.deps.json
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.EntityFrameworkCore\bin\Debug\net6.0\Crm.CEP.EntityFrameworkCore.runtimeconfig.json
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.EntityFrameworkCore\bin\Debug\net6.0\Crm.CEP.EntityFrameworkCore.dll
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.EntityFrameworkCore\bin\Debug\net6.0\Crm.CEP.EntityFrameworkCore.pdb
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.EntityFrameworkCore\bin\Debug\net6.0\Crm.CEP.Domain.dll
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.EntityFrameworkCore\bin\Debug\net6.0\Crm.CEP.Domain.Shared.dll
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.EntityFrameworkCore\bin\Debug\net6.0\Crm.CEP.Domain.pdb
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.EntityFrameworkCore\bin\Debug\net6.0\Crm.CEP.Domain.Shared.pdb
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\Crm.CEP.EntityFrameworkCore.csproj.CopyComplete
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\Crm.CEP.EntityFrameworkCore.dll
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\refint\Crm.CEP.EntityFrameworkCore.dll
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\Crm.CEP.EntityFrameworkCore.pdb
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\Crm.CEP.EntityFrameworkCore.genruntimeconfig.cache
+C:\Users\rmano\Desktop\MinnaNew\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\ref\Crm.CEP.EntityFrameworkCore.dll
+D:\CEP APP NEW\New\src\Crm.CEP.EntityFrameworkCore\bin\Debug\net6.0\Crm.CEP.EntityFrameworkCore.deps.json
+D:\CEP APP NEW\New\src\Crm.CEP.EntityFrameworkCore\bin\Debug\net6.0\Crm.CEP.EntityFrameworkCore.runtimeconfig.json
+D:\CEP APP NEW\New\src\Crm.CEP.EntityFrameworkCore\bin\Debug\net6.0\Crm.CEP.EntityFrameworkCore.dll
+D:\CEP APP NEW\New\src\Crm.CEP.EntityFrameworkCore\bin\Debug\net6.0\Crm.CEP.EntityFrameworkCore.pdb
+D:\CEP APP NEW\New\src\Crm.CEP.EntityFrameworkCore\bin\Debug\net6.0\Crm.CEP.Domain.dll
+D:\CEP APP NEW\New\src\Crm.CEP.EntityFrameworkCore\bin\Debug\net6.0\Crm.CEP.Domain.Shared.dll
+D:\CEP APP NEW\New\src\Crm.CEP.EntityFrameworkCore\bin\Debug\net6.0\Crm.CEP.Domain.pdb
+D:\CEP APP NEW\New\src\Crm.CEP.EntityFrameworkCore\bin\Debug\net6.0\Crm.CEP.Domain.Shared.pdb
+D:\CEP APP NEW\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\Crm.CEP.EntityFrameworkCore.csproj.AssemblyReference.cache
+D:\CEP APP NEW\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\Crm.CEP.EntityFrameworkCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\CEP APP NEW\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\Crm.CEP.EntityFrameworkCore.AssemblyInfoInputs.cache
+D:\CEP APP NEW\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\Crm.CEP.EntityFrameworkCore.AssemblyInfo.cs
+D:\CEP APP NEW\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\Crm.CEP.EntityFrameworkCore.csproj.CoreCompileInputs.cache
+D:\CEP APP NEW\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\Crm.CEP.EntityFrameworkCore.csproj.CopyComplete
+D:\CEP APP NEW\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\Crm.CEP.EntityFrameworkCore.dll
+D:\CEP APP NEW\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\refint\Crm.CEP.EntityFrameworkCore.dll
+D:\CEP APP NEW\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\Crm.CEP.EntityFrameworkCore.pdb
+D:\CEP APP NEW\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\Crm.CEP.EntityFrameworkCore.genruntimeconfig.cache
+D:\CEP APP NEW\New\src\Crm.CEP.EntityFrameworkCore\obj\Debug\net6.0\ref\Crm.CEP.EntityFrameworkCore.dll
