@@ -1,0 +1,28 @@
+﻿@page
+@model Crm.CEP.Web.Pages.Coupon.IndexModel
+@{
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Coupon/Index.js"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>Coupon</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+                <abp-button id="NewCouponButton"
+                            text="Coupon"
+                            icon="plus"
+                            button-type="Primary"/>
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="CouponsTable"></abp-table>
+    </abp-card-body>
+</abp-card>
