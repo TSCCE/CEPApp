@@ -16,7 +16,7 @@ namespace Crm.CEP.Web.WorkFlows
 {
 
     [Action]
-    public class CouponActivity : Activity, IActivityPropertyOptionsProvider, IRuntimeSelectListItemsProvider
+    public class CouponActivity : Activity, IActivityPropertyOptionsProvider, IRuntimeSelectListProvider
     {
 
         private readonly CouponAppService _couponRepository;
@@ -52,7 +52,7 @@ namespace Crm.CEP.Web.WorkFlows
                 var service = scope.ServiceProvider.GetService<ICouponAppService>();
                 List<DropdownCouponDto> datas = service.GetCoupDropdownsAsync().Result;
                 //return datas;
-                return new RuntimeSelectListItemsProviderSettings(GetType(), new CouponContext(datas));
+                return new RuntimeSelectListProviderSettings(GetType(), new CouponContext(datas));
             }
 
         }
@@ -71,7 +71,10 @@ namespace Crm.CEP.Web.WorkFlows
 
         protected override IActivityExecutionResult OnExecute() => Done(CouponName);
 
-
+        public ValueTask<SelectList> GetSelectListAsync(object context = null, CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public record CouponContext(List<DropdownCouponDto> Coupons);
