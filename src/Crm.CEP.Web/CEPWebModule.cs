@@ -88,6 +88,7 @@ public class CEPWebModule : AbpModule
         ConfigureLocalizationServices();
         ConfigureNavigationServices();
         ConfigureAutoApiControllers();
+        context.Services.AddAbpApiVersioning(option => { option.AssumeDefaultVersionWhenUnspecified = true; option.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0); });
         ConfigureSwaggerServices(context.Services);
        // ConfigureElsa(context, configuration);
     }
