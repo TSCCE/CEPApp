@@ -41,6 +41,8 @@ using Elsa.Persistence.EntityFramework.Core.Extensions;
 using Volo.Abp.AspNetCore.Mvc.AntiForgery;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Elsa.Persistence.EntityFramework.Sqlite;
+using Crm.CEP.Web.Extensions;
+using Elsa;
 
 namespace Crm.CEP.Web;
 
@@ -90,49 +92,50 @@ public class CEPWebModule : AbpModule
         ConfigureAutoApiControllers();
         context.Services.AddAbpApiVersioning(option => { option.AssumeDefaultVersionWhenUnspecified = true; option.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0); });
         ConfigureSwaggerServices(context.Services);
-       // ConfigureElsa(context, configuration);
+       ConfigureElsa(context, configuration);
     }
-    //private void ConfigureElsa(ServiceConfigurationContext context, IConfiguration configuration)
-    //{
-    //    var elsaSection = configuration.GetSection("Elsa");
+    private void ConfigureElsa(ServiceConfigurationContext context, IConfiguration configuration)
+    {
+        var elsaSection = configuration.GetSection("Elsa");
 
-    //    context.Services.AddElsa(elsa =>
-    //    {
-    //        elsa
-    //            .UseEntityFrameworkPersistence(ef =>
-    //                DbContextOptionsBuilderExtensions.UseSqlite(ef,
-    //                    configuration.GetConnectionString("Default")))
-    //            .AddConsoleActivities()
-    //            .AddHttpActivities(elsaSection.GetSection("Server").Bind)
-    //            .AddEmailActivities(elsaSection.GetSection("Smtp").Bind)
-    //            // .AddQuartzTemporalActivities()
-    //            .AddJavaScriptActivities();
-    //            //.AddWorkflowsFrom<Startup>()
-    //           // .AddUserActivities()
-    //           // .AddActivity<AssignCoupon>();
-    //        // .AddActivity<CouponActivity>();
-    //    });
-    //    //context.Services.AddElsa(elsaOptions => elsaOptions.AddActivity<AddSegment>());
-    //    context.Services.AddElsaApiEndpoints();
-    //    context.Services.Configure<ApiVersioningOptions>(options =>
-    //    {
-    //        options.UseApiBehavior = false;
-    //    });
+        context.Services.AddElsa(elsa =>
+        {
+            elsa
+                  //   .UseEntityFrameworkPersistence(ef =>
+                  //    DbContextOptionsBuilderExtensions.UseSqlite(ef,
+                  //       configuration.GetConnectionString("Default")))
+                 //.UseEntityFrameworkPersistence(ef => ef.UseSqlite())
+                .AddConsoleActivities()
+                .AddHttpActivities(elsaSection.GetSection("Server").Bind)
+                .AddEmailActivities(elsaSection.GetSection("Smtp").Bind)
+                .AddQuartzTemporalActivities()
+                .AddJavaScriptActivities()
+                .AddWorkflowsFrom<Startup>()
+                .AddUserActivities();
+            //.AddActivity<AssignCoupon>();
+            // .AddActivity<CouponActivity>();
+        });
+        //context.Services.AddElsa(elsaOptions => elsaOptions.AddActivity<AddSegment>());
+        context.Services.AddElsaApiEndpoints();
+        context.Services.Configure<ApiVersioningOptions>(options =>
+        {
+            options.UseApiBehavior = false;
+        });
 
-    //    context.Services.AddCors(cors => cors.AddDefaultPolicy(policy => policy
-    //        .AllowAnyHeader()
-    //        .AllowAnyMethod()
-    //        .AllowAnyOrigin()
-    //        .WithExposedHeaders("Content-Disposition"))
-    //    );
+        context.Services.AddCors(cors => cors.AddDefaultPolicy(policy => policy
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowAnyOrigin()
+            .WithExposedHeaders("Content-Disposition"))
+        );
 
-    //    //Disable antiforgery validation for elsa
-    //    Configure<AbpAntiForgeryOptions>(options =>
-    //    {
-    //        options.AutoValidateFilter = type =>
-    //            type.Assembly != typeof(Elsa.Server.Api.Endpoints.WorkflowRegistry.Get).Assembly;
-    //    });
-    //}
+        //Disable antiforgery validation for elsa
+        Configure<AbpAntiForgeryOptions>(options =>
+        {
+            options.AutoValidateFilter = type =>
+                type.Assembly != typeof(Elsa.Server.Api.Endpoints.WorkflowRegistry.Get).Assembly;
+        });
+    }
     private void ConfigureUrls(IConfiguration configuration)
     {
         Configure<AppUrlOptions>(options =>
