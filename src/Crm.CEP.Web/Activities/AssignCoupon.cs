@@ -38,7 +38,7 @@ namespace Crm.CEP.Web.Activities
 
         [ActivityInput(UIHint = ActivityInputUIHints.Dropdown,
        Hint = "Select a segment",
-               OptionsProvider = typeof(AddSegment)
+       OptionsProvider = typeof(AddSegment)
       )]
 
         public string SegmentName { get; set; }

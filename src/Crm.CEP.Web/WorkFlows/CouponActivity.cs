@@ -6,18 +6,20 @@ using Elsa.Expressions;
 using Elsa.Metadata;
 using Elsa.Services;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
+using Volo.Abp.Domain.Entities;
 
 namespace Crm.CEP.Web.WorkFlows
 {
 
     [Action]
-    public class CouponActivity : Activity, IActivityPropertyOptionsProvider, IRuntimeSelectListProvider
+    public class CouponActivity : Activity, IActivityPropertyOptionsProvider, IRuntimeSelectListItemsProvider
     {
 
         private readonly CouponAppService _couponRepository;
@@ -26,17 +28,17 @@ namespace Crm.CEP.Web.WorkFlows
             _couponRepository = couponRepository;
         }
 
-        [ActivityInput(
-           UIHint = ActivityInputUIHints.Dropdown,
-           OptionsProvider = typeof(CouponActivity),
-           DefaultSyntax = SyntaxNames.Literal,
-             Hint = "Select a Coupon",
-           SupportedSyntaxes = new[] { SyntaxNames.Literal, SyntaxNames.Json, SyntaxNames.JavaScript, SyntaxNames.Liquid }
-       )]
+       // [ActivityInput(
+       //    UIHint = ActivityInputUIHints.Dropdown,
+       //    OptionsProvider = typeof(CouponActivity),
+       //    DefaultSyntax = SyntaxNames.Literal,
+       //      Hint = "Select a Coupon",
+       //    SupportedSyntaxes = new[] { SyntaxNames.Literal, SyntaxNames.Json, SyntaxNames.JavaScript, SyntaxNames.Liquid }
+       //)]
 
         public string? CouponName { get; set; }
 
-        [Obsolete]
+
         public object GetOptions(PropertyInfo property)
         {
 
@@ -53,38 +55,49 @@ namespace Crm.CEP.Web.WorkFlows
                 var service = scope.ServiceProvider.GetService<ICouponAppService>();
                 List<DropdownCouponDto> datas = service.GetCoupDropdownsAsync().Result;
                 //return datas;
-                return new RuntimeSelectListProviderSettings(GetType(), new CouponContext(datas));
+                if (datas == null)
+                {
+                    throw new EntityNotFoundException();
+                }
+                else
+                {
+                    return new RuntimeSelectListProviderSettings(GetType(), new CouponContext(datas));
+                }
             }
 
         }
-        
+
 
 
 
         public ValueTask<IEnumerable<SelectListItem>> GetItemsAsync(object context, CancellationToken cancellationToken = default)
         {
-            var couponContext = (CouponContext)context!;
+          //  var couponContext = (CouponContext)context!;
+            var couponContext = JsonConvert.DeserializeObject<CouponContext>(context.ToString());
             var coup = couponContext.Coupons;
             //var segments = _segmentRepository.GetSegDropdownsAsync().Result;
-            var coupons = coup.Select(x => new SelectListItem(Name = x.Name)).ToList(); 
+            var coupons = coup.Select(x => new SelectListItem(Name = x.Name)).ToList();
             return new ValueTask<IEnumerable<SelectListItem>>(coupons);
         }
 
         protected override IActivityExecutionResult OnExecute() => Done(CouponName);
 
-        public ValueTask<SelectList> GetSelectListAsync(object context, CancellationToken cancellationToken = default)
-        {
-            
-            
-            
-            var couponContext =(CouponContext)context;
-          
-            var coup = couponContext.Coupons;
-            //var segments = _segmentRepository.GetSegDropdownsAsync().Result;
-            var coupons = coup.Select(x => new SelectListItem(Name = x.Name)).ToList();
-            return new ValueTask<SelectList>(new SelectList());
+        //public ValueTask<SelectList> GetSelectListAsync(object? context, CancellationToken cancellationToken = default)
+        //{
 
-        }
+
+
+        //    //  var couponContext =(CouponContext)context;
+        //    // CouponContext couponContext = new CouponContext();
+        //    var couponContext = (CouponContext)context;
+        //    var coup = couponContext.Coupons;
+        //    //var segments = _segmentRepository.GetSegDropdownsAsync().Result;
+        //    var coupons = coup.Select(x => new SelectListItem(Name = x.Name)).ToList();
+        //    return new ValueTask<SelectList>(new SelectList());
+
+        //}
+
+
     }
 
     public record CouponContext(List<DropdownCouponDto> Coupons);
@@ -93,11 +106,6 @@ namespace Crm.CEP.Web.WorkFlows
 
 
 
-
-
-
-
-
-  
+    
 
 }

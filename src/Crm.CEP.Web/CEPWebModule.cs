@@ -103,10 +103,10 @@ public class CEPWebModule : AbpModule
         context.Services.AddElsa(elsa =>
         {
             elsa
-                  //   .UseEntityFrameworkPersistence(ef =>
-                  //    DbContextOptionsBuilderExtensions.UseSqlite(ef,
-                  //       configuration.GetConnectionString("Default")))
-                 //.UseEntityFrameworkPersistence(ef => ef.UseSqlite())
+                //   .UseEntityFrameworkPersistence(ef =>
+                //    DbContextOptionsBuilderExtensions.UseSqlite(ef,
+                //       configuration.GetConnectionString("Default")))
+                //.UseEntityFrameworkPersistence(ef => ef.UseSqlite())
                 .AddConsoleActivities()
                 .AddHttpActivities(elsaSection.GetSection("Server").Bind)
                 .AddEmailActivities(elsaSection.GetSection("Smtp").Bind)
@@ -114,8 +114,8 @@ public class CEPWebModule : AbpModule
                 .AddJavaScriptActivities()
                 .AddWorkflowsFrom<Startup>()
                 .AddUserActivities()
-            .AddActivity<AssignCoupon>()
-             .AddActivity<CouponActivity>();
+            .AddActivity<AssignCoupon>();
+            // .AddActivity<CouponActivity>();
         });
         //context.Services.AddElsa(elsaOptions => elsaOptions.AddActivity<AddSegment>());
         context.Services.AddElsaApiEndpoints();
