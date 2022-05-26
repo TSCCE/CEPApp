@@ -26,7 +26,7 @@ namespace Crm.CEP.Web.WorkFlows
 {
     //this is not an activity
     [Action]
-    public class AddSegment : Activity, IActivityPropertyOptionsProvider, IRuntimeSelectListProvider
+    public class AddSegment : Activity, IActivityPropertyOptionsProvider,IRuntimeSelectListProvider
     {
        
         private readonly SegmentAppService _segmentRepository;
@@ -41,7 +41,7 @@ namespace Crm.CEP.Web.WorkFlows
 
         [Obsolete]
         public object GetOptions(PropertyInfo property)
-        {
+{
 
             using (var scope = _segmentRepository.ServiceProvider.CreateScope())
             {
@@ -74,22 +74,25 @@ namespace Crm.CEP.Web.WorkFlows
 
         protected override IActivityExecutionResult OnExecute() => Done(SegmentId);
 
-        public ValueTask<SelectList> GetSelectListAsync(object context = null, CancellationToken cancellationToken = default)
-        {
-            throw new NotImplementedException();
-        }
-
         //public ValueTask<SelectList> GetSelectListAsync(object context = null, CancellationToken cancellationToken = default)
         //{
-        //    var segmentContext = (SegmentContext)context!;
-        //    var seg = segmentContext.Segments;
-        //    //var segments = _segmentRepository.GetSegDropdownsAsync().Result;
-        //    var segments = seg.Select(x => new SelectListItem(Name = x.Name, Id = x.Id.ToString())).ToList();
-        //    ValueTask<SelectList> segList = (ValueTask<SelectList>)segments;
-        //    return segList;
-        //    //throw new NotImplementedException();
+        //    throw new NotImplementedException();
         //}
+
+        public ValueTask<SelectList> GetSelectListAsync(object context, CancellationToken cancellationToken = default)
+        {
+
+
+            var segmentContext = (SegmentContext)context;
+            var seg = segmentContext.Segments;
+            //var segments = _segmentRepository.GetSegDropdownsAsync().Result;
+            var segments = seg.Select(x => new SelectListItem(Name = x.Name, Id = x.Id.ToString())).ToList();
+            return new ValueTask<SelectList>(new SelectList());
+            //throw new NotImplementedException();
+        }
     }
+    
+          
 
     public record SegmentContext(List<DropdownSegmentDto> Segments);
 

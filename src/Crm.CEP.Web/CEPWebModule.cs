@@ -43,6 +43,8 @@ using Microsoft.AspNetCore.Mvc.Versioning;
 using Elsa.Persistence.EntityFramework.Sqlite;
 using Crm.CEP.Web.Extensions;
 using Elsa;
+using Crm.CEP.Web.Activities;
+using Crm.CEP.Web.WorkFlows;
 
 namespace Crm.CEP.Web;
 
@@ -111,9 +113,9 @@ public class CEPWebModule : AbpModule
                 .AddQuartzTemporalActivities()
                 .AddJavaScriptActivities()
                 .AddWorkflowsFrom<Startup>()
-                .AddUserActivities();
-            //.AddActivity<AssignCoupon>();
-            // .AddActivity<CouponActivity>();
+                .AddUserActivities()
+            .AddActivity<AssignCoupon>()
+             .AddActivity<CouponActivity>();
         });
         //context.Services.AddElsa(elsaOptions => elsaOptions.AddActivity<AddSegment>());
         context.Services.AddElsaApiEndpoints();
