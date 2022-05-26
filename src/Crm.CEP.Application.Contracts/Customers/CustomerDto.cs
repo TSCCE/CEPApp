@@ -8,33 +8,33 @@ namespace Crm.CEP.Customers
 {
     public class CustomerDto : AuditedEntityDto<long>
     {
-        private List<CustomerDto> customerDtos;
+        public string CustomerId { get; set; }
+        public string CustomerName { get; set; }
 
-        public CustomerDto(List<CustomerDto> customerDtos)
-        {
-            this.customerDtos = customerDtos;
-        }
 
-        public string Name { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime DOB { get; set; }
+
+        public string Gender { get; set; }
 
         public string Nationality { get; set; }
 
-        // [DataType(DataType.Date)]
-        //public DateTime DOB { get; set; }
-        public string DOB { get; set; }
-        public GenderEnum Gender { get; set; }
+        public string MaritalStatus { get; set; }
 
-        public MaritalStatusEnum? MaritalStatus { get; set; }
+        public string LoyaltyId { get; set; }
 
-        public long? LoyaltyId { get; set; }
-
-        public long? MembershipStatusId { get; set; }
-
-        public long? CustomerStatusId { get; set; }
-
-        public string OTPType { get; set; }
+        public string LoyaltyStatus { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime? JoinDate { get; set; }
+        public DateTime LoyaltyExpiryDate { get; set; }
+
+        public string MembershipStatus { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime? JoiningDate { get; set; }
+
+        public string PhoneNo { get; set; }
+
+        public string EmailId { get; set; }
     }
 }
