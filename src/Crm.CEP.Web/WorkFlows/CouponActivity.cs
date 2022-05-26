@@ -2,6 +2,7 @@
 using Elsa.ActivityResults;
 using Elsa.Attributes;
 using Elsa.Design;
+using Elsa.Expressions;
 using Elsa.Metadata;
 using Elsa.Services;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,15 +26,15 @@ namespace Crm.CEP.Web.WorkFlows
             _couponRepository = couponRepository;
         }
 
-        // [ActivityInput(
-        //    UIHint = ActivityInputUIHints.Dropdown,
-        //    OptionsProvider = typeof(SegmentActivity),
-        //    DefaultSyntax = SyntaxNames.Literal,
-        //      Hint = "Select a segment",
-        //    SupportedSyntaxes = new[] { SyntaxNames.Literal, SyntaxNames.Json, SyntaxNames.JavaScript, SyntaxNames.Liquid }
-        //)]
+        [ActivityInput(
+           UIHint = ActivityInputUIHints.Dropdown,
+           OptionsProvider = typeof(CouponActivity),
+           DefaultSyntax = SyntaxNames.Literal,
+             Hint = "Select a Coupon",
+           SupportedSyntaxes = new[] { SyntaxNames.Literal, SyntaxNames.Json, SyntaxNames.JavaScript, SyntaxNames.Liquid }
+       )]
 
-        public string CouponName { get; set; }
+        public string? CouponName { get; set; }
 
         [Obsolete]
         public object GetOptions(PropertyInfo property)
@@ -65,15 +66,24 @@ namespace Crm.CEP.Web.WorkFlows
             var couponContext = (CouponContext)context!;
             var coup = couponContext.Coupons;
             //var segments = _segmentRepository.GetSegDropdownsAsync().Result;
-            var coupons = coup.Select(x => new SelectListItem(Name = x.Name)).ToList(); ;
+            var coupons = coup.Select(x => new SelectListItem(Name = x.Name)).ToList(); 
             return new ValueTask<IEnumerable<SelectListItem>>(coupons);
         }
 
         protected override IActivityExecutionResult OnExecute() => Done(CouponName);
 
-        public ValueTask<SelectList> GetSelectListAsync(object context = null, CancellationToken cancellationToken = default)
+        public ValueTask<SelectList> GetSelectListAsync(object context, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            
+            
+            
+            var couponContext =(CouponContext)context;
+          
+            var coup = couponContext.Coupons;
+            //var segments = _segmentRepository.GetSegDropdownsAsync().Result;
+            var coupons = coup.Select(x => new SelectListItem(Name = x.Name)).ToList();
+            return new ValueTask<SelectList>(new SelectList());
+
         }
     }
 
