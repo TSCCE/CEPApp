@@ -263,3 +263,5 @@ src/Crm.CEP.Blazor.Server.Tiered/Logs/*
 
 # Use abp install-libs to restore.
 **/wwwroot/libs/*
+/src/Crm.CEP.EntityFrameworkCore/Migrations/20220526093738_newu.Designer.cs
+/src/Crm.CEP.EntityFrameworkCore/Migrations/20220526093738_newu.cs
