@@ -123,7 +123,7 @@ namespace Crm.CEP.Segments
 
             var jsonExpressionParser = new SegmentParseDBHelper();
             //var nextCondition = json.ToObject<IList<QueryAttributes>>();
-            var jsonDocument = JsonDocument.Parse(strquery);
+          //  var jsonDocument = JsonDocument.Parse(token);
             foreach (var obj in nextCondition)
             {
                 if (obj.SegmentMode == "Customer")
