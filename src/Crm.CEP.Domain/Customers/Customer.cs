@@ -18,8 +18,8 @@ namespace Crm.CEP.Customers
         public string CustomerName { get; set; }
 
 
-        [DataType(DataType.Date)]
-        public DateTime DOB { get; set; }
+       // [DataType(DataType.Date)]
+        public string DOB { get; set; }
 
         public string Gender { get; set; }
 
@@ -31,13 +31,13 @@ namespace Crm.CEP.Customers
 
         public string LoyaltyStatus { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime LoyaltyExpiryDate { get; set; }
+       // [DataType(DataType.Date)]
+        public string LoyaltyExpiryDate { get; set; }
 
         public string MembershipStatus { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime? JoiningDate { get; set; }
+        //[DataType(DataType.Date)]
+        public string? JoiningDate { get; set; }
 
         public string PhoneNo { get; set; }
 

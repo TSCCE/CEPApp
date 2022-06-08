@@ -15,10 +15,10 @@ namespace Crm.CEP.Transactions
     {
         public string TransactionId { get; set; }
 
-        public decimal InvoiceValue { get; set; }
+        public string InvoiceValue { get; set; }
 
-        [DataType(DataType.DateTime)]
-        public DateTime PurchaseDate { get; set; }
+       // [DataType(DataType.DateTime)]
+        public string PurchaseDate { get; set; }
 
         [ForeignKey(nameof(Customer))]
         public string CustomerId { get; set; }
@@ -28,8 +28,8 @@ namespace Crm.CEP.Transactions
         public string TransactionItem { get; set; }
 
         public string Discount { get; set; }
-        public decimal ATV { get; set; }
-        public decimal UPT { get; set; }
+        public string ATV { get; set; }
+        public string UPT { get; set; }
         public string StoreIDOfTransaction { get; set; }
         public string  StoreName { get; set; }
         public Transaction()

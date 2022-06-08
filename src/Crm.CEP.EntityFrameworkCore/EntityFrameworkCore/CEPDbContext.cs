@@ -171,7 +171,7 @@ public class CEPDbContext :
             x.Property(p => p.PurchaseDate).IsRequired();
 
             x.Property(x => x.InvoiceValue)
-            .HasColumnType(TransactionConsts.ColumnTypeInvoiceValue)
+            //.HasColumnType(TransactionConsts.ColumnTypeInvoiceValue)
             .IsRequired();
         });
 
