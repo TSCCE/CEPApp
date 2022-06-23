@@ -62,7 +62,7 @@ namespace Crm.CEP.Web;
     typeof(AbpAspNetCoreSerilogModule),
     typeof(AbpSwashbuckleModule)
     )]
-public class CEPWebModule : AbpModule
+    public class CEPWebModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
