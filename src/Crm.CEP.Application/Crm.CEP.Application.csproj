@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\SmsService\SmsService.csproj" />
     <ProjectReference Include="..\Crm.CEP.Domain\Crm.CEP.Domain.csproj" />
     <ProjectReference Include="..\Crm.CEP.Application.Contracts\Crm.CEP.Application.Contracts.csproj" />
   </ItemGroup>

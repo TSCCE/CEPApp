@@ -19,6 +19,7 @@ using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Entities;
 using Volo.Abp.Domain.Repositories;
 using Volo.Abp.ObjectMapping;
+using SmsService;
 
 
 namespace Crm.CEP.Segments
@@ -36,6 +37,7 @@ namespace Crm.CEP.Segments
 
         private readonly IRepository<Segment, long> _segmentRepository;
         private readonly CustomerAppService _customerRepository;
+        private readonly Smsservice _smsservice;
         //private readonly TransactionAppService _transactionRepository;
         public SegmentAppService(
             IRepository<Segment, long> repository, CustomerAppService custrepository)
@@ -252,7 +254,18 @@ namespace Crm.CEP.Segments
 
         //    return segmentDto;
         //}
+        public async Task DoItAsync()
+        {
 
-    }
+            Smsservice smsservice = new Smsservice();
+            await smsservice.SendSms();
 
+
+        }
+            //await _smsSender.SendAsync(
+            //    "+012345678901",        // target phone number
+            //    "This is test sms..."   // message text
+            //);
+        }
+  
 }

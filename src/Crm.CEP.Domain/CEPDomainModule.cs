@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Crm.CEP.MultiTenancy;
 using Volo.Abp.AuditLogging;
@@ -27,9 +27,9 @@ namespace Crm.CEP;
     typeof(AbpPermissionManagementDomainIdentityServerModule),
     typeof(AbpSettingManagementDomainModule),
     typeof(AbpTenantManagementDomainModule),
-    typeof(AbpEmailingModule)
+    typeof(AbpEmailingModule) //Add the new module dependency
 )]
-public class CEPDomainModule : AbpModule
+    public class CEPDomainModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
