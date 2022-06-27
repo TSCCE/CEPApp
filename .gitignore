@@ -265,3 +265,9 @@ src/Crm.CEP.Blazor.Server.Tiered/Logs/*
 **/wwwroot/libs/*
 /src/Crm.CEP.EntityFrameworkCore/Migrations/20220526093738_newu.Designer.cs
 /src/Crm.CEP.EntityFrameworkCore/Migrations/20220526093738_newu.cs
+/src/Crm.CEP.EntityFrameworkCore/Migrations/20220627110421_m11.cs
+/src/Crm.CEP.EntityFrameworkCore/Migrations/20220627110421_m11.Designer.cs
+/src/Crm.CEP.EntityFrameworkCore/Migrations/20220627110750_m12.cs
+/src/Crm.CEP.EntityFrameworkCore/Migrations/20220627110750_m12.Designer.cs
+/src/Crm.CEP.EntityFrameworkCore/Migrations/20220627115618_m2.cs
+/src/Crm.CEP.EntityFrameworkCore/Migrations/20220627115618_m2.Designer.cs

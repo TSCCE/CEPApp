@@ -4,6 +4,7 @@ using Crm.CEP.Customers;
 using Crm.CEP.Items;
 using Crm.CEP.Passwords;
 using Crm.CEP.Queries;
+using Crm.CEP.Referrals;
 using Crm.CEP.SaltKeys;
 using Crm.CEP.Segments;
 using Crm.CEP.Settings;
@@ -83,10 +84,10 @@ public class CEPDbContext :
     public DbSet<Segment> Segments { get; set; }
 
     public DbSet<Query> Queries { get; set; }
-
-   /* public DbSet<SaltKey> SaltKeys { get; set; }
-    public DbSet<Password> Passwords { get; set; }
-    public DbSet<Setting> Settings { get; set; }*/
+    public DbSet<Referral> Referrals { get; set; }
+    /* public DbSet<SaltKey> SaltKeys { get; set; }
+     public DbSet<Password> Passwords { get; set; }
+     public DbSet<Setting> Settings { get; set; }*/
     public DbSet<Store> Stores { get; set; }
     public CEPDbContext(DbContextOptions<CEPDbContext> options)
         : base(options)
@@ -307,6 +308,16 @@ public class CEPDbContext :
             x.ToTable(CEPConsts.DbTablePrefix + nameof(Store) + "s", CEPConsts.DbSchema);
 
             x.HasKey(x => x.StoreID);
+
+            x.ConfigureByConvention();
+            //x.Property(p => p.StoreName).IsRequired();
+        });
+
+        builder.Entity<Referral>(x =>
+        {
+            x.ToTable(CEPConsts.DbTablePrefix + nameof(Referral) + "s", CEPConsts.DbSchema);
+
+            x.HasKey(x => x.Id);
 
             x.ConfigureByConvention();
             //x.Property(p => p.StoreName).IsRequired();
