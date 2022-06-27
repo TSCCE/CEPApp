@@ -4,6 +4,7 @@ using Crm.CEP.CustomerCoupons;
 using Crm.CEP.Customers;
 using Crm.CEP.Items;
 using Crm.CEP.Queries;
+using Crm.CEP.Referrals;
 using Crm.CEP.Segments;
 using Crm.CEP.TransactionItems;
 using Crm.CEP.Transactions;
@@ -52,6 +53,12 @@ public class CEPApplicationAutoMapperProfile : Profile
 
         CreateMap<CreateUpdateTransactionItemDto, TransactionItem>();
         CreateMap<TransactionItem, TransactionItemDto>();
+
+        
+
+        CreateMap<Referral, ReferralDto>();
+        CreateMap<CreateUpdateReferralDto, Referral>();
+
 
     }
 }
