@@ -45,6 +45,7 @@ using Crm.CEP.Web.Extensions;
 using Elsa;
 using Crm.CEP.Web.Activities;
 using Crm.CEP.Web.WorkFlows;
+using System.Net.Http;
 
 namespace Crm.CEP.Web;
 
@@ -95,6 +96,10 @@ namespace Crm.CEP.Web;
         context.Services.AddAbpApiVersioning(option => { option.AssumeDefaultVersionWhenUnspecified = true; option.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0); });
         ConfigureSwaggerServices(context.Services);
        ConfigureElsa(context, configuration);
+        Configure<AbpAntiForgeryOptions>(options =>
+        {
+            options.AutoValidate = false;
+        });
     }
     private void ConfigureElsa(ServiceConfigurationContext context, IConfiguration configuration)
     {
@@ -124,12 +129,12 @@ namespace Crm.CEP.Web;
             options.UseApiBehavior = false;
         });
 
-        context.Services.AddCors(cors => cors.AddDefaultPolicy(policy => policy
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowAnyOrigin()
-            .WithExposedHeaders("Content-Disposition"))
-        );
+        //context.Services.AddCors(cors => cors.AddDefaultPolicy(policy => policy
+        //    .AllowAnyHeader()
+        //    .AllowAnyMethod()
+        //    .AllowAnyOrigin()
+        //    .WithExposedHeaders("Content-Disposition"))
+        //);
 
         //Disable antiforgery validation for elsa
         Configure<AbpAntiForgeryOptions>(options =>
@@ -159,16 +164,57 @@ namespace Crm.CEP.Web;
             );
         });
     }
-
+    readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
     private void ConfigureAuthentication(ServiceConfigurationContext context, IConfiguration configuration)
     {
-        context.Services.AddAuthentication()
-            .AddJwtBearer(options =>
+        //context.Services.AddAuthentication()
+        //    .AddJwtBearer(options =>
+        //    {
+        //        options.Authority = configuration["AuthServer:Authority"];
+        //        options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
+        //        options.Audience = "CEP";
+        //    });
+        context.Services.AddCors(options =>
+        {
+            options.AddPolicy(name: MyAllowSpecificOrigins,
+                              policy =>
+                              {
+                                  policy.AllowAnyOrigin()
+                                  .AllowAnyHeader()
+                                  .AllowAnyMethod();
+                              });
+        });
+
+
+        context.Services.AddAuthentication().AddJwtBearer(options =>
+        {
+            options.Authority = configuration["AuthServer:Authority"];
+            options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
+            options.Audience = "CEP";
+            options.BackchannelHttpHandler = new HttpClientHandler
             {
-                options.Authority = configuration["AuthServer:Authority"];
-                options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
-                options.Audience = "CEP";
+                ServerCertificateCustomValidationCallback
+                = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+            };
+        }).AddJwtBearer(authenticationScheme: "jwt2", configureOptions: options =>
+        {
+            options.Authority = configuration["AuthServer:Authority"];
+            options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
+            options.Audience = "CEP";
+            options.BackchannelHttpHandler = new HttpClientHandler
+            {
+                ServerCertificateCustomValidationCallback
+                = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+            };
+
+        });
+        context.Services.AddAuthorization(options =>
+        {
+            options.AddPolicy(name: "my_jwt2", configurePolicy: policy =>
+            {
+                policy.RequireClaim("scope", allowedValues: "CEP").AddAuthenticationSchemes("jwt2");
             });
+        });
     }
 
     private void ConfigureAutoMapper()
@@ -275,9 +321,9 @@ namespace Crm.CEP.Web;
         {
             app.UseMultiTenancy();
         }
-
+       app.UseCors(MyAllowSpecificOrigins);
         app.UseUnitOfWork();
-        app.UseIdentityServer();
+        //app.UseIdentityServer();
         app.UseAuthorization();
         app.UseSwagger();
         app.UseAbpSwaggerUI(options =>
