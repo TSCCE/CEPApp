@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Authorization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ using Volo.Abp.Domain.Repositories;
 
 namespace Crm.CEP.Customers
 {
+    
     public class CustomerAppService : CrudAppService<Customer,
             CustomerDto,
             long,
@@ -21,6 +23,7 @@ namespace Crm.CEP.Customers
         {
             _customerRepository = repository;
         }
+         
         public override async Task<CustomerDto> CreateAsync(CreateUpdateCustomerDto customer)
         {
             var newcustomer = ObjectMapper.Map<CreateUpdateCustomerDto, Customer>(customer);
