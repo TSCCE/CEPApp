@@ -19,7 +19,7 @@ namespace Crm.CEP.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("_Abp_DatabaseProvider", EfCoreDatabaseProvider.SqlServer)
-                .HasAnnotation("ProductVersion", "6.0.4")
+                .HasAnnotation("ProductVersion", "6.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -31,6 +31,9 @@ namespace Crm.CEP.Migrations
                         .HasColumnType("bigint");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<string>("CampaignType")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -46,6 +49,9 @@ namespace Crm.CEP.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("CreatorId");
 
+                    b.Property<string>("DiscountDetails")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ExtraProperties")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("ExtraProperties");
@@ -58,15 +64,50 @@ namespace Crm.CEP.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("LastModifierId");
 
+                    b.Property<string>("MaxDiscount")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
+                    b.Property<string>("Prefix")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
+                    b.Property<long>("TermsId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Threshold")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TotalIssued")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TotalRedeemed")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ValidDays")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ValidHoursEnd")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ValidHoursStart")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ValidityEnd")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ValidityStart")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("TermsId");
 
                     b.ToTable("AppCoupons", (string)null);
                 });
@@ -207,6 +248,9 @@ namespace Crm.CEP.Migrations
                         .HasColumnType("nvarchar(40)")
                         .HasColumnName("ConcurrencyStamp");
 
+                    b.Property<long?>("CouponId")
+                        .HasColumnType("bigint");
+
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("datetime2")
                         .HasColumnName("CreationTime");
@@ -236,6 +280,8 @@ namespace Crm.CEP.Migrations
                         .HasColumnType("nvarchar(150)");
 
                     b.HasKey("ItemID");
+
+                    b.HasIndex("CouponId");
 
                     b.ToTable("AppItems", (string)null);
                 });
@@ -439,6 +485,48 @@ namespace Crm.CEP.Migrations
                     b.HasKey("StoreID");
 
                     b.ToTable("AppStores", (string)null);
+                });
+
+            modelBuilder.Entity("Crm.CEP.Terms.TermsConditions", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)")
+                        .HasColumnName("ConcurrencyStamp");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreationTime");
+
+                    b.Property<Guid?>("CreatorId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("CreatorId");
+
+                    b.Property<string>("ExtraProperties")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("ExtraProperties");
+
+                    b.Property<DateTime?>("LastModificationTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("LastModificationTime");
+
+                    b.Property<Guid?>("LastModifierId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("LastModifierId");
+
+                    b.Property<string>("Terms")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppTermsConditionss", (string)null);
                 });
 
             modelBuilder.Entity("Crm.CEP.Transactions.Transaction", b =>
@@ -2492,6 +2580,17 @@ namespace Crm.CEP.Migrations
                     b.ToTable("AbpTenantConnectionStrings", (string)null);
                 });
 
+            modelBuilder.Entity("Crm.CEP.Coupons.Coupon", b =>
+                {
+                    b.HasOne("Crm.CEP.Terms.TermsConditions", "Terms")
+                        .WithMany()
+                        .HasForeignKey("TermsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Terms");
+                });
+
             modelBuilder.Entity("Crm.CEP.CustomerCoupons.CustomerCoupon", b =>
                 {
                     b.HasOne("Crm.CEP.Coupons.Coupon", "Coupon")
@@ -2509,6 +2608,13 @@ namespace Crm.CEP.Migrations
                     b.Navigation("Coupon");
 
                     b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("Crm.CEP.Items.Item", b =>
+                {
+                    b.HasOne("Crm.CEP.Coupons.Coupon", null)
+                        .WithMany("ValidProducts")
+                        .HasForeignKey("CouponId");
                 });
 
             modelBuilder.Entity("Crm.CEP.Queries.Query", b =>
@@ -2830,6 +2936,8 @@ namespace Crm.CEP.Migrations
             modelBuilder.Entity("Crm.CEP.Coupons.Coupon", b =>
                 {
                     b.Navigation("CustomerCoupons");
+
+                    b.Navigation("ValidProducts");
                 });
 
             modelBuilder.Entity("Crm.CEP.Customers.Customer", b =>

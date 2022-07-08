@@ -10,6 +10,7 @@ using Crm.CEP.Stores;
 using Crm.CEP.TransactionItems;
 using Crm.CEP.Transactions;
 using Crm.CEP.TransactionsItems;
+using Crm.CEP.Terms;
 
 namespace Crm.CEP;
 
@@ -63,5 +64,8 @@ public class CEPApplicationAutoMapperProfile : Profile
 
         CreateMap<Store, StoreDto>();
         CreateMap<CreateUpdateStoreDto, Store>();
+
+        CreateMap<TermsConditions, TermsDto>();
+        CreateMap<CreateUpdateTermsDto, TermsConditions>();
     }
 }

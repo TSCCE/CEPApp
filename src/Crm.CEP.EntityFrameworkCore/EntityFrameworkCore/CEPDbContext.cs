@@ -9,6 +9,7 @@ using Crm.CEP.SaltKeys;
 using Crm.CEP.Segments;
 using Crm.CEP.Settings;
 using Crm.CEP.Stores;
+using Crm.CEP.Terms;
 using Crm.CEP.Transactions;
 using Crm.CEP.TransactionsItems;
 using Microsoft.EntityFrameworkCore;
@@ -89,6 +90,7 @@ public class CEPDbContext :
      public DbSet<Password> Passwords { get; set; }
      public DbSet<Setting> Settings { get; set; }*/
     public DbSet<Store> Stores { get; set; }
+    public DbSet<TermsConditions> Terms { get; set; }
     public CEPDbContext(DbContextOptions<CEPDbContext> options)
         : base(options)
     {
@@ -316,6 +318,16 @@ public class CEPDbContext :
         builder.Entity<Referral>(x =>
         {
             x.ToTable(CEPConsts.DbTablePrefix + nameof(Referral) + "s", CEPConsts.DbSchema);
+
+            x.HasKey(x => x.Id);
+
+            x.ConfigureByConvention();
+            //x.Property(p => p.StoreName).IsRequired();
+        });
+
+        builder.Entity<TermsConditions>(x =>
+        {
+            x.ToTable(CEPConsts.DbTablePrefix + nameof(TermsConditions) + "s", CEPConsts.DbSchema);
 
             x.HasKey(x => x.Id);
 
