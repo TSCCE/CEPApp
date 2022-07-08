@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Crm.CEP.Migrations
 {
-    public partial class Initial : Migration
+    public partial class TermsnConditions : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -277,40 +277,20 @@ namespace Crm.CEP.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AppCoupons",
-                columns: table => new
-                {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false),
-                    ExtraProperties = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true),
-                    CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatorId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    LastModificationTime = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    LastModifierId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AppCoupons", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AppCustomers",
                 columns: table => new
                 {
                     CustomerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CustomerName = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
-                    DOB = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DOB = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Nationality = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     MaritalStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LoyaltyId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LoyaltyStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LoyaltyExpiryDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LoyaltyExpiryDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MembershipStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    JoiningDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    JoiningDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PhoneNo = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     EmailId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Id = table.Column<long>(type: "bigint", nullable: false),
@@ -327,12 +307,18 @@ namespace Crm.CEP.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AppItems",
+                name: "AppReferrals",
                 columns: table => new
                 {
-                    ItemID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
-                    Id = table.Column<long>(type: "bigint", nullable: false),
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ReferralID = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PointsOfReferrer = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EndDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PointsOfReferree = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    StartDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ExpiryInDays = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ExtraProperties = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true),
                     CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -342,7 +328,7 @@ namespace Crm.CEP.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AppItems", x => x.ItemID);
+                    table.PrimaryKey("PK_AppReferrals", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -383,6 +369,25 @@ namespace Crm.CEP.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AppStores", x => x.StoreID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AppTermsConditionss",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Terms = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ExtraProperties = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true),
+                    CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatorId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    LastModificationTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    LastModifierId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AppTermsConditionss", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -807,14 +812,14 @@ namespace Crm.CEP.Migrations
                 columns: table => new
                 {
                     TransactionId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    InvoiceValue = table.Column<decimal>(type: "decimal(15,2)", nullable: false),
-                    PurchaseDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    InvoiceValue = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PurchaseDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CustomerId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     TransactionStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TransactionItem = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Discount = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ATV = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    UPT = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ATV = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UPT = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     StoreIDOfTransaction = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     StoreName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Id = table.Column<long>(type: "bigint", nullable: false),
@@ -833,37 +838,6 @@ namespace Crm.CEP.Migrations
                         column: x => x.CustomerId,
                         principalTable: "AppCustomers",
                         principalColumn: "CustomerId");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CustomerCoupons",
-                columns: table => new
-                {
-                    CustomerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CouponId = table.Column<long>(type: "bigint", nullable: false),
-                    Id = table.Column<long>(type: "bigint", nullable: false),
-                    ExtraProperties = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true),
-                    CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatorId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    LastModificationTime = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    LastModifierId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CustomerCoupons", x => new { x.CustomerId, x.CouponId });
-                    table.ForeignKey(
-                        name: "FK_CustomerCoupons_AppCoupons_CouponId",
-                        column: x => x.CouponId,
-                        principalTable: "AppCoupons",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_CustomerCoupons_AppCustomers_CustomerId",
-                        column: x => x.CustomerId,
-                        principalTable: "AppCustomers",
-                        principalColumn: "CustomerId",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -890,6 +864,44 @@ namespace Crm.CEP.Migrations
                         principalTable: "AppSegments",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AppCoupons",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    CampaignType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Prefix = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ValidityStart = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ValidityEnd = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ValidDays = table.Column<int>(type: "int", nullable: false),
+                    ValidHoursStart = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ValidHoursEnd = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DiscountDetails = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Threshold = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MaxDiscount = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Status = table.Column<int>(type: "int", nullable: false),
+                    TotalIssued = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TotalRedeemed = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TermsId = table.Column<long>(type: "bigint", nullable: true),
+                    ExtraProperties = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true),
+                    CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatorId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    LastModificationTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    LastModifierId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AppCoupons", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AppCoupons_AppTermsConditionss_TermsId",
+                        column: x => x.TermsId,
+                        principalTable: "AppTermsConditionss",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -1233,6 +1245,62 @@ namespace Crm.CEP.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AppItems",
+                columns: table => new
+                {
+                    ItemID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    CouponId = table.Column<long>(type: "bigint", nullable: true),
+                    Id = table.Column<long>(type: "bigint", nullable: false),
+                    ExtraProperties = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true),
+                    CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatorId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    LastModificationTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    LastModifierId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AppItems", x => x.ItemID);
+                    table.ForeignKey(
+                        name: "FK_AppItems_AppCoupons_CouponId",
+                        column: x => x.CouponId,
+                        principalTable: "AppCoupons",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CustomerCoupons",
+                columns: table => new
+                {
+                    CustomerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    CouponId = table.Column<long>(type: "bigint", nullable: false),
+                    Id = table.Column<long>(type: "bigint", nullable: false),
+                    ExtraProperties = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true),
+                    CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatorId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    LastModificationTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    LastModifierId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CustomerCoupons", x => new { x.CustomerId, x.CouponId });
+                    table.ForeignKey(
+                        name: "FK_CustomerCoupons_AppCoupons_CouponId",
+                        column: x => x.CouponId,
+                        principalTable: "AppCoupons",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CustomerCoupons_AppCustomers_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "AppCustomers",
+                        principalColumn: "CustomerId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TransactionItems",
                 columns: table => new
                 {
@@ -1424,6 +1492,16 @@ namespace Crm.CEP.Migrations
                 column: "UserName");
 
             migrationBuilder.CreateIndex(
+                name: "IX_AppCoupons_TermsId",
+                table: "AppCoupons",
+                column: "TermsId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppItems_CouponId",
+                table: "AppItems",
+                column: "CouponId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AppQuerys_SegmentId",
                 table: "AppQuerys",
                 column: "SegmentId",
@@ -1538,6 +1616,9 @@ namespace Crm.CEP.Migrations
                 name: "AppQuerys");
 
             migrationBuilder.DropTable(
+                name: "AppReferrals");
+
+            migrationBuilder.DropTable(
                 name: "AppStores");
 
             migrationBuilder.DropTable(
@@ -1622,9 +1703,6 @@ namespace Crm.CEP.Migrations
                 name: "AppSegments");
 
             migrationBuilder.DropTable(
-                name: "AppCoupons");
-
-            migrationBuilder.DropTable(
                 name: "IdentityServerApiResources");
 
             migrationBuilder.DropTable(
@@ -1646,7 +1724,13 @@ namespace Crm.CEP.Migrations
                 name: "AbpAuditLogs");
 
             migrationBuilder.DropTable(
+                name: "AppCoupons");
+
+            migrationBuilder.DropTable(
                 name: "AppCustomers");
+
+            migrationBuilder.DropTable(
+                name: "AppTermsConditionss");
         }
     }
 }
