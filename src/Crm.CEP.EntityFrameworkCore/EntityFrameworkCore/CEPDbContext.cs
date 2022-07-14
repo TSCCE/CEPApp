@@ -309,7 +309,7 @@ public class CEPDbContext :
         {
             x.ToTable(CEPConsts.DbTablePrefix + nameof(Store) + "s", CEPConsts.DbSchema);
 
-            x.HasKey(x => x.StoreID);
+            x.HasKey(x => x.Id);
 
             x.ConfigureByConvention();
             //x.Property(p => p.StoreName).IsRequired();
