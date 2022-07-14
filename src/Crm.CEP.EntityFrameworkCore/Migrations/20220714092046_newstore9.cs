@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Crm.CEP.Migrations
 {
-    public partial class TermsnConditions : Migration
+    public partial class newstore9 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -354,11 +354,17 @@ namespace Crm.CEP.Migrations
                 name: "AppStores",
                 columns: table => new
                 {
-                    StoreID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    StoreName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    StoreManager = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    StoreLocation = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Id = table.Column<long>(type: "bigint", nullable: false),
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StoreID = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Unit = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Profile = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Emirate = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Area = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AreaCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AreaManager = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Username = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Key = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ExtraProperties = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true),
                     CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -368,7 +374,7 @@ namespace Crm.CEP.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AppStores", x => x.StoreID);
+                    table.PrimaryKey("PK_AppStores", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -886,7 +892,7 @@ namespace Crm.CEP.Migrations
                     Status = table.Column<int>(type: "int", nullable: false),
                     TotalIssued = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TotalRedeemed = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TermsId = table.Column<long>(type: "bigint", nullable: true),
+                    TermsId = table.Column<long>(type: "bigint", nullable: false),
                     ExtraProperties = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true),
                     CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -901,7 +907,8 @@ namespace Crm.CEP.Migrations
                         name: "FK_AppCoupons_AppTermsConditionss_TermsId",
                         column: x => x.TermsId,
                         principalTable: "AppTermsConditionss",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
