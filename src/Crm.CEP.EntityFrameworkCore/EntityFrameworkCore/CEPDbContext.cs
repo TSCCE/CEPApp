@@ -247,7 +247,7 @@ public class CEPDbContext :
             x.Property(p => p.JSONQueryField).IsRequired();
         });
 
-      /*  builder.Entity<Password>(x =>
+        builder.Entity<Password>(x =>
         {
             x.ToTable(CEPConsts.DbTablePrefix + nameof(Password) + "s", CEPConsts.DbSchema);
 
@@ -265,10 +265,10 @@ public class CEPDbContext :
 
 
 
-        });*/
+        });
 
 
-       /* builder.Entity<SaltKey>(x =>
+        builder.Entity<SaltKey>(x =>
         {
             x.ToTable(CEPConsts.DbTablePrefix + nameof(SaltKey) + "s", CEPConsts.DbSchema);
 
@@ -283,10 +283,10 @@ public class CEPDbContext :
             x.Property(p => p.SaltKeyvalue).IsRequired();
 
 
-        });*/
+        });
 
 
-      /*  builder.Entity<Setting>(x =>
+        builder.Entity<Setting>(x =>
         {
             x.ToTable(CEPConsts.DbTablePrefix + nameof(Setting) + "s", CEPConsts.DbSchema);
 
@@ -299,11 +299,11 @@ public class CEPDbContext :
             .HasForeignKey<Setting>(k => k.Id);
 
 
-            //x.HasOne(p => p.Password)
-            //.WithMany(p => p.Settings)
-            //.HasForeignKey(p => p.PasswordId)
-            //.OnDelete(DeleteBehavior.Cascade);
-        });*/
+              //x.HasOne(p => p.Password)
+              //.WithMany(p => p.Settings)
+              //.HasForeignKey(p => p.PasswordId)
+              //.OnDelete(DeleteBehavior.Cascade);
+        });
 
         builder.Entity<Store>(x =>
         {
