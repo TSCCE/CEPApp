@@ -12,6 +12,7 @@ using Crm.CEP.Stores;
 using Crm.CEP.Terms;
 using Crm.CEP.Transactions;
 using Crm.CEP.TransactionsItems;
+using Crm.CEP.Users;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
@@ -86,6 +87,9 @@ public class CEPDbContext :
 
     public DbSet<Query> Queries { get; set; }
     public DbSet<Referral> Referrals { get; set; }
+
+    public DbSet <User> User { get; set; }
+
     /* public DbSet<SaltKey> SaltKeys { get; set; }
      public DbSet<Password> Passwords { get; set; }
      public DbSet<Setting> Settings { get; set; }*/
@@ -328,6 +332,16 @@ public class CEPDbContext :
         builder.Entity<TermsConditions>(x =>
         {
             x.ToTable(CEPConsts.DbTablePrefix + nameof(TermsConditions) + "s", CEPConsts.DbSchema);
+
+            x.HasKey(x => x.Id);
+
+            x.ConfigureByConvention();
+            //x.Property(p => p.StoreName).IsRequired();
+        });
+
+        builder.Entity<User>(x =>
+        {
+            x.ToTable(CEPConsts.DbTablePrefix + nameof(User) + "s", CEPConsts.DbSchema);
 
             x.HasKey(x => x.Id);
 
