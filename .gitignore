@@ -271,3 +271,9 @@ src/Crm.CEP.Blazor.Server.Tiered/Logs/*
 /src/Crm.CEP.EntityFrameworkCore/Migrations/20220627110750_m12.Designer.cs
 /src/Crm.CEP.EntityFrameworkCore/Migrations/20220627115618_m2.cs
 /src/Crm.CEP.EntityFrameworkCore/Migrations/20220627115618_m2.Designer.cs
+/src/Crm.CEP.EntityFrameworkCore/Migrations/20220811112910_mig1.cs
+/src/Crm.CEP.EntityFrameworkCore/Migrations/20220811112910_mig1.Designer.cs
+/src/Crm.CEP.EntityFrameworkCore/Migrations/20220811172655_m1.cs
+/src/Crm.CEP.EntityFrameworkCore/Migrations/20220811172655_m1.Designer.cs
+/src/Crm.CEP.EntityFrameworkCore/Migrations/20220811173530_m12.cs
+*.cs
