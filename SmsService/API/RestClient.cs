@@ -27,23 +27,51 @@ namespace SmsService.API
         {
             var query = new Dictionary<string, string>()
             {
-                ["User"] = "tscdxb",
-                ["passwd"] = "36988604",
-                ["mobilenumber"] = "971502263418",
-                ["message"] = "testmessage",
-                ["sid"] = "SMSCOUNTRY"
-            };
-            using(_Client=new HttpClient())
-            {
-                var uri = QueryHelpers.AddQueryString("http://api.smscountry.com/SMSCwebservice_bulk.aspx", query);
+                ["accesskey"] = "jE2kjqCndIs6Yxg",
+                ["sid"] = "ATELIER",
+                ["mno"] = "971502263418,971503864001",
+                ["type"] = "1",
+                ["text"] = "testmessage",
 
+                //["user"] = "SuperEN",
+                //["pass"] = "May2022",
+                //["sid"] = "MaylaaInt",
+                //["mno"] = "971502263418,971501122535",
+                //["type"]="1",
+                //["text"] = "testmessage",
+
+            };
+            using (_Client = new HttpClient())
+            {
+
+
+                var uri = QueryHelpers.AddQueryString("http://51.210.118.93:8080/websmpp/websms", query);
                 var result = await _Client.GetAsync(uri);
                 if (result.IsSuccessStatusCode)
                 {
-                     return  true;
+                    return true;
                 }
                 return false;
             }
+            //var query = new Dictionary<string, string>()
+            //{
+            //    ["User"] = "tscdxb",
+            //    ["passwd"] = "36988604",
+            //    ["mobilenumber"] = "971502263418",
+            //    ["message"] = "testmessage",
+            //    ["sid"] = "SMSCOUNTRY"
+            //};
+            //using(_Client=new HttpClient())
+            //{
+            //    var uri = QueryHelpers.AddQueryString("http://api.smscountry.com/SMSCwebservice_bulk.aspx", query);
+
+            //    var result = await _Client.GetAsync(uri);
+            //    if (result.IsSuccessStatusCode)
+            //    {
+            //         return  true;
+            //    }
+            //    return false;
+            //}
 
             //var query = new Dictionary<string, string>()
             //{
