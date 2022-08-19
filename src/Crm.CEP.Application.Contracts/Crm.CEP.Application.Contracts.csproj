@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Users\CreateUpdateUserDto.cs" />
+    <Compile Remove="Users\IUserAppServicecs.cs" />
+    <Compile Remove="Users\UserRegistrationDto.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Crm.CEP.Domain.Shared\Crm.CEP.Domain.Shared.csproj" />
   </ItemGroup>
 

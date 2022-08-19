@@ -11,7 +11,7 @@ using Volo.Abp.Domain.Repositories;
 
 namespace Crm.CEP.Customers
 {
-    
+    [Authorize]
     public class CustomerAppService : CrudAppService<Customer,
             CustomerDto,
             long,

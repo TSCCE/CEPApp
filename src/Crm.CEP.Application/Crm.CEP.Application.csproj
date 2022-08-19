@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Users\UserAppService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\SmsService\SmsService.csproj" />
     <ProjectReference Include="..\Crm.CEP.Domain\Crm.CEP.Domain.csproj" />
     <ProjectReference Include="..\Crm.CEP.Application.Contracts\Crm.CEP.Application.Contracts.csproj" />
@@ -21,6 +25,10 @@
     <PackageReference Include="Volo.Abp.TenantManagement.Application" Version="5.2.0" />
     <PackageReference Include="Volo.Abp.FeatureManagement.Application" Version="5.2.0" />
     <PackageReference Include="Volo.Abp.SettingManagement.Application" Version="5.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Users\" />
   </ItemGroup>
 
 </Project>
